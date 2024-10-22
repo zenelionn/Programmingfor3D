@@ -10,7 +10,14 @@ public class TriggerDoorController : MonoBehaviour
     [SerializeField] private bool reOpenTrigger = false;
     private bool IsOpen = false;
 
-    //public GameObject reOpenTriggerOBJ;
+    // audio
+    public AudioSource OpenSound;
+    public AudioSource CloseSound;
+
+    void Start(){
+        //OpenSound = GetComponent<AudioSource>();
+        
+    }
 
     
 
@@ -18,20 +25,11 @@ public class TriggerDoorController : MonoBehaviour
         if(other.CompareTag("Player")){
             if (openTrigger){
                 myDoor.Play("DoorOpen", 0, 0.0f);
-                //IsOpen = true;
-                //gameObject.SetActive(false);
+                OpenSound.Play(0);
+                
                 
                 
             }
-        
-            //else if (closeTrigger &&sOpen == true){
-                //myDoor.Play("DoorClose", 0, 0.0f);
-                //IsOpen = false;   
-                //gameObject.SetActive(false);
-            //} 
-            //else if (closeTrigger && IsOpen == false){
-                //myDoor.Play("DoorOpen", 0, 0.0f);
-            //}
             
         }
 
@@ -43,8 +41,8 @@ public class TriggerDoorController : MonoBehaviour
             if (openTrigger && IsOpen == false){
                 
                 myDoor.Play("DoorClose", 0, 0.0f);
-                //IsOpen = false;
-                //gameObject.SetActive(false);
+                CloseSound.Play(0);
+            
                 
                 
             }
