@@ -11,27 +11,27 @@ public class NewBehaviourScript : MonoBehaviour
     [SerializeField] private  bool interactable = true;
     [SerializeField] private bool hittingPlayer;
     [SerializeField] private GameObject lockCanvas;
-    [SerializeField] private TMP_Text[] Text;
-    [SerializeField] private string Password;
-    [SerializeField] private string[] LockCharacterChoices;
-    [SerializeField] private int[] LockCharacterNumber;
+    [SerializeField] private TMP_Text[] text;
+    [SerializeField] private string password;
+    [SerializeField] private string[] lockCharacterChoices;
+    [SerializeField] private int[] lockCharacterNumber;
 
     private string insertedPassword;
     
     // Start is called before the first frame update
     void Start()
     {
-        LockCharacterNumber = new int[Password.Length];
+        lockCharacterNumber = new int[password.Length];
         UpdateUI();
         hittingPlayer = false;
     }
 
     public void ChangeInsertedPassword(int number)
     {
-        LockCharacterNumber[number]++;
-        if (LockCharacterNumber[number] >= LockCharacterChoices[number].Length)
+        lockCharacterNumber[number]++;
+        if (lockCharacterNumber[number] >= lockCharacterChoices[number].Length)
         {
-            LockCharacterNumber[number] = 0;   
+            lockCharacterNumber[number] = 0;   
         }
 
         Checkpassword();
@@ -40,15 +40,15 @@ public class NewBehaviourScript : MonoBehaviour
 
     public void Checkpassword()
     {
-        int pass_len = Password.Length;
+        int passLen = password.Length;
         insertedPassword = "";
 
-        for(int i=0; i < pass_len; i++)
+        for(int i=0; i < passLen; i++)
         {
-            insertedPassword += LockCharacterChoices[i][LockCharacterNumber[i]].ToString();
+            insertedPassword += lockCharacterChoices[i][lockCharacterNumber[i]].ToString();
         }
 
-        if(Password == insertedPassword)
+        if(password == insertedPassword)
         {
             Unlock();
         }
@@ -61,10 +61,10 @@ public class NewBehaviourScript : MonoBehaviour
 
     public void UpdateUI()
     {
-        int len = Text.Length;
+        int len = text.Length;
         for (int i=0; i < len; i++)
         {
-            Text[i].text = LockCharacterChoices[i][LockCharacterNumber[i]].ToString();
+            text[i].text = lockCharacterChoices[i][lockCharacterNumber[i]].ToString();
 
         }
     }

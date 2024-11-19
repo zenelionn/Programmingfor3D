@@ -11,15 +11,15 @@ public class Clue1 : MonoBehaviour
 
     [SerializeField] private bool hittingPlayer = false;
 
-    public TMP_Text clue1Text;
-    public GameObject Clue1Canvas;
+    public TMP_Text clueText;
+    public GameObject clueCanvas;
 
 
     // Start is called before the first frame update
     void Start()
     {
-        clue1Text.gameObject.SetActive(false);
-        Clue1Canvas.SetActive(false);
+        clueText.gameObject.SetActive(false);
+        clueCanvas.SetActive(false);
     }
 
     void Update()
@@ -37,8 +37,8 @@ public class Clue1 : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            clue1Text.text = "Press E to read Clue";
-            clue1Text.gameObject.SetActive(true);
+            clueText.text = "Press E to read Clue";
+            clueText.gameObject.SetActive(true);
             hittingPlayer = true;
         }
     }
@@ -47,19 +47,19 @@ public class Clue1 : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            clue1Text.gameObject.SetActive(false);
+            clueText.gameObject.SetActive(false);
             hittingPlayer = false;
         }
     }
 
     public void Interactable()
     {
-        Clue1Canvas.SetActive(true);
+        clueCanvas.SetActive(true);
 
     }
 
     public void StopInteract()
     {
-        Clue1Canvas.SetActive(false);
+        clueCanvas.SetActive(false);
     }
 }
