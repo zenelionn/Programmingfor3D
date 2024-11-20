@@ -12,6 +12,7 @@ public class NewBehaviourScript : MonoBehaviour
     [SerializeField] private bool hittingPlayer;
     [SerializeField] private GameObject lockCanvas;
     [SerializeField] private TMP_Text[] text;
+    [SerializeField] private TMP_Text playerText;
     [SerializeField] private string password;
     [SerializeField] private string[] lockCharacterChoices;
     [SerializeField] private int[] lockCharacterNumber;
@@ -21,8 +22,10 @@ public class NewBehaviourScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        playerText.gameObject.SetActive(false);
         lockCharacterNumber = new int[password.Length];
         UpdateUI();
+        playerText.gameObject.SetActive(false);
         hittingPlayer = false;
     }
 
@@ -77,6 +80,7 @@ public class NewBehaviourScript : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        playerText.gameObject.SetActive(true);
         if (other.gameObject.CompareTag("Player"))
         {
             hittingPlayer = true;
@@ -85,6 +89,7 @@ public class NewBehaviourScript : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
+        playerText.gameObject.SetActive(false);
         if (other.gameObject.CompareTag("Player"))
         {
             hittingPlayer = false;
