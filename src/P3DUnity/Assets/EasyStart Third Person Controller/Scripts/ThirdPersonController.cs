@@ -50,6 +50,7 @@ public class ThirdPersonController : MonoBehaviour
     {
         cc = GetComponent<CharacterController>();
         animator = GetComponent<Animator>();
+        
 
         // Message informing the user that they forgot to add an animator
         if (animator == null)
@@ -60,6 +61,9 @@ public class ThirdPersonController : MonoBehaviour
     // Update is only being used here to identify keys and trigger animations
     void Update()
     {
+
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
 
         // Input checkers
         inputHorizontal = Input.GetAxis("Horizontal");

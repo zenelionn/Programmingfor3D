@@ -38,6 +38,7 @@ public class Clue1 : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             clueText.text = "Press E to read Clue";
+            
             clueText.gameObject.SetActive(true);
             hittingPlayer = true;
         }
@@ -55,6 +56,7 @@ public class Clue1 : MonoBehaviour
     public void Interactable()
     {
         clueCanvas.SetActive(true);
+        clueText.gameObject.SetActive(false);
 
     }
 
