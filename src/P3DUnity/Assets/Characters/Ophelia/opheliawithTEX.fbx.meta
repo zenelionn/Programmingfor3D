@@ -1,0 +1,190 @@
+fileFormatVersion: 2
+guid: fbf8150603b1a40b480ceb6600e17525
+ModelImporter:
+  serializedVersion: 22200
+  internalIDToNameTable: []
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ophelia tex
+    second: {fileID: 2100000, guid: f4287d6dfd1d34cb4bd340787382484f, type: 2}
+  materials:
+    materialImportMode: 2
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    removeConstantScaleCurves: 0
+    motionNodeName: 
+    rigImportErrors: "Invalid Avatar Rig Configuration. Missing or invalid transform:\n\tRequired
+      human bone 'Hips' not found\n"
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 3
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importPhysicalCameras: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    nodeNameCollisionStrategy: 1
+    fileIdsGeneration: 2
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    optimizeBones: 1
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 1
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    strictVertexDataChecks: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human: []
+    skeleton:
+    - name: opheliawithTEX(Clone)
+      parentName: 
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Light
+      parentName: opheliawithTEX(Clone)
+      position: {x: -4.0762453, y: 5.903862, z: -1.005454}
+      rotation: {x: 0.52327543, y: -0.34203398, z: 0.72694236, w: 0.28416628}
+      scale: {x: 100.00001, y: 100, z: 100}
+    - name: Camera
+      parentName: opheliawithTEX(Clone)
+      position: {x: -7.3588915, y: 4.958309, z: 6.925791}
+      rotation: {x: 0.09062851, y: 0.89379627, z: -0.20997299, w: 0.3857799}
+      scale: {x: 100, y: 100.00001, z: 99.99999}
+    - name: Empty
+      parentName: opheliawithTEX(Clone)
+      position: {x: -0, y: 2.2352102, z: -2.5188568}
+      rotation: {x: 4.316693e-15, y: 1, z: -0.000000021855694, w: 0.00000019470718}
+      scale: {x: 100, y: 100, z: 100}
+    - name: Empty.001
+      parentName: opheliawithTEX(Clone)
+      position: {x: 2.487449, y: 2.2352102, z: 0}
+      rotation: {x: 0.000000015454313, y: -0.70710677, z: 0.000000015454312, w: 0.7071068}
+      scale: {x: 100, y: 100, z: 100}
+    - name: Cube
+      parentName: opheliawithTEX(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 17.583414, y: 17.583414, z: 74.77997}
+    - name: Cube.001
+      parentName: opheliawithTEX(Clone)
+      position: {x: -0, y: 2.7852046, z: 0}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 23.780272, y: 23.780272, z: 23.780272}
+    - name: Cylinder
+      parentName: opheliawithTEX(Clone)
+      position: {x: -0, y: 3.6367407, z: 0}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 9.764701, y: 7.9173827, z: 9.764701}
+    - name: Cube.004
+      parentName: opheliawithTEX(Clone)
+      position: {x: 0.00000011920929, y: 3.096115, z: 0}
+      rotation: {x: -0.6623246, y: -0.24929786, z: 0.28278947, w: 0.64746183}
+      scale: {x: 16.821472, y: 7.2164106, z: 16.821474}
+    - name: Plane
+      parentName: opheliawithTEX(Clone)
+      position: {x: -5.6250556e-18, y: 1.6802777, z: 0.49719664}
+      rotation: {x: -0.10583332, y: -1.5808163e-24, z: -2.3499718e-17, w: 0.99438393}
+      scale: {x: 23.087029, y: 111.734924, z: 111.734924}
+    - name: Plane.001
+      parentName: opheliawithTEX(Clone)
+      position: {x: -5.6250556e-18, y: 1.6802777, z: -1.3584993}
+      rotation: {x: -0.000000020606512, y: 0.99438393, z: 0.10583333, w: 0.0000001936137}
+      scale: {x: 23.087029, y: 111.734924, z: 111.734924}
+    - name: Plane.002
+      parentName: opheliawithTEX(Clone)
+      position: {x: -0.000000059604645, y: -0.00000023841858, z: 5.820766e-11}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 23.087029, y: 111.734924, z: 111.734924}
+    - name: Plane.003
+      parentName: opheliawithTEX(Clone)
+      position: {x: -0, y: 3.9758728, z: 0}
+      rotation: {x: 0.000000021855694, y: 0, z: -0, w: 1}
+      scale: {x: 27.401253, y: 27.401253, z: 27.401253}
+    - name: Cube.005
+      parentName: opheliawithTEX(Clone)
+      position: {x: 0.00000017881393, y: 0, z: -0.00000011034544}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 15.3144865, y: 15.3144865, z: 15.3144865}
+    - name: Cube.002
+      parentName: opheliawithTEX(Clone)
+      position: {x: -0.00000011920929, y: 3.096115, z: 0}
+      rotation: {x: -0.6492132, y: 0.24550335, z: -0.27848512, w: 0.66384965}
+      scale: {x: 16.821474, y: 7.2164106, z: 16.821474}
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 1
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 3
+  humanoidOversampling: 1
+  avatarSetup: 1
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 1
+  importBlendShapeDeformPercent: 1
+  remapMaterialsIfMaterialImportModeIsNone: 0
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
