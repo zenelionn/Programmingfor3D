@@ -84114,6 +84114,7 @@ MonoBehaviour:
   player: {fileID: 1074312476}
   fezziwigTransform: {fileID: 543450652699872811}
   fezziwigAnimator: {fileID: 5866666021013460049}
+  stopDistance: 2
 --- !u!1 &6050452201352467071
 GameObject:
   m_ObjectHideFlags: 0
