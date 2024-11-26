@@ -7,7 +7,7 @@ public class TriggerDoorController : MonoBehaviour
     [SerializeField] private Animator myDoor = null;
     [SerializeField] private bool openTrigger = false;
     //[SerializeField] private bool closeTrigger = false;
-    [SerializeField] private bool reOpenTrigger = false;
+    
     private bool IsOpen = false;
 
     // audio
