@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/test building.unity
     guid: 00d7de9c512574f94b8aea3366457936
+  - enabled: 1
+    path: Assets/Scenes/Obstacle Course.unity
+    guid: 4772aca43f7b94c138a5309f0415b150
   m_configObjects: {}
