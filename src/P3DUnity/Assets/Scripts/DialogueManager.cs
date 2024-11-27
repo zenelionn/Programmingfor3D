@@ -18,6 +18,8 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] Animator rustAnimator;
     [SerializeField] Animator fezzAnimator;
     [SerializeField] List<string> rustAnimations = new List<string>();
+    [SerializeField] List<string> fezzAnimations = new List<string>();
+
     private int animation = 0;
 
     // Start is called before the first frame update
@@ -87,9 +89,11 @@ public class DialogueManager : MonoBehaviour
         // play next animation
         if (animation > 8){
             rustAnimator.Play("Idle");
+            fezzAnimator.Play("Sitting Idle");
         }
         else{
             rustAnimator.Play(rustAnimations[animation]);
+            fezzAnimator.Play(fezzAnimations[animation]);
             PlayNextAnimation();
         }
         
