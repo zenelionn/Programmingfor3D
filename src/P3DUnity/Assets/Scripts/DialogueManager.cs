@@ -22,6 +22,12 @@ public class DialogueManager : MonoBehaviour
 
     private int animation = 0;
 
+    [Header("Cameras")]
+    [SerializeField] Camera rustCamera;
+    [SerializeField] Camera fezzCamera;
+
+    [SerializeField] List<Camera> CamerasType = new List<Camera>();
+
     // Start is called before the first frame update
     void Start()
     {
@@ -29,6 +35,10 @@ public class DialogueManager : MonoBehaviour
         sentences = new Queue<string>();
         nextButton.onClick.AddListener(OnNextButtonClicked);
         nextButton.gameObject.SetActive(false);
+
+        // initialise cameras
+        rustCamera.enabled = true;
+        fezzCamera.enabled = false;
 
         
         
@@ -94,7 +104,20 @@ public class DialogueManager : MonoBehaviour
         else{
             rustAnimator.Play(rustAnimations[animation]);
             fezzAnimator.Play(fezzAnimations[animation]);
+
+            // switch cameras
+            if(CamerasType[animation] == rustCamera){
+                rustCamera.enabled = true;
+                fezzCamera.enabled = false;
+            }
+            if(CamerasType[animation] == fezzCamera){
+                rustCamera.enabled = false;
+                fezzCamera.enabled = true;
+            }
+
             PlayNextAnimation();
+
+
         }
         
     }
