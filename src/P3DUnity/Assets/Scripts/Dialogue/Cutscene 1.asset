@@ -10,6 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2efd29e417ff34c0db7bea59899aa49a, type: 3}
-  m_Name: New Dialogue
+  m_Name: Cutscene 1
   m_EditorClassIdentifier: 
-  sentences: []
+  sentences:
+  - Fezziwig...
+  - 
+  - Why are you so upset?
+  - Would you like some food?
+  - 
+  - A nap?
+  - 
+  - You're pillow?
+  - 
+  - "Hm\u2026 I think I left it in my room\u2026 I\u2019ll go get it"

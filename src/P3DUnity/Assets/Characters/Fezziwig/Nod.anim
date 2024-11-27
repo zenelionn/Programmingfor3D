@@ -1,0 +1,141 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!74 &7400000
+AnimationClip:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Nod
+  serializedVersion: 7
+  m_Legacy: 0
+  m_Compressed: 0
+  m_UseHighQualityCurve: 1
+  m_RotationCurves:
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0.8333334
+        value: {x: 0.24791394, y: 0.0033011322, z: 0.0056457953, w: 0.96876}
+        inSlope: {x: 0.16288713, y: -0.00095209014, z: 0.00055222266, w: -0.042293113}
+        outSlope: {x: 0.16288713, y: -0.00095209014, z: 0.00055222266, w: -0.042293113}
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334, w: 0.33333334}
+        outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334, w: 0.33333334}
+      - serializedVersion: 3
+        time: 1
+        value: {x: 0.3299761, y: 0.0028054456, z: 0.005907786, w: 0.9439666}
+        inSlope: {x: 0.75644267, y: -0.0047375467, z: 0.0022447119, w: -0.2651609}
+        outSlope: {x: 0.75644267, y: -0.0047375467, z: 0.0022447119, w: -0.2651609}
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334, w: 0.33333334}
+        outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334, w: 0.33333334}
+      - serializedVersion: 3
+        time: 1.25
+        value: {x: 0.43448532, y: 0.0021202117, z: 0.0061868564, w: 0.90065515}
+        inSlope: {x: -0.27798524, y: 0.0018399233, z: -0.0007865907, w: 0.13205823}
+        outSlope: {x: -0.27798524, y: 0.0018399233, z: -0.0007865907, w: 0.13205823}
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334, w: 0.33333334}
+        outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334, w: 0.33333334}
+      - serializedVersion: 3
+        time: 1.4583334
+        value: {x: 0.28319824, y: 0.003092322, z: 0.005762813, w: 0.9590391}
+        inSlope: {x: -0.92157036, y: 0.0055409186, z: -0.0029682135, w: 0.2728417}
+        outSlope: {x: -0.92157036, y: 0.0055409186, z: -0.0029682135, w: 0.2728417}
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334, w: 0.33333334}
+        outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334, w: 0.33333334}
+      - serializedVersion: 3
+        time: 1.7083334
+        value: {x: 0.16419128, y: 0.003771682, z: 0.0053429273, w: 0.98640686}
+        inSlope: {x: 0.27380928, y: -0.0014900104, z: 0.001039966, w: -0.0470839}
+        outSlope: {x: 0.27380928, y: -0.0014900104, z: 0.001039966, w: -0.0470839}
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334, w: 0.33333334}
+        outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334, w: 0.33333334}
+      - serializedVersion: 3
+        time: 1.9166667
+        value: {x: 0.2993039, y: 0.0029948626, z: 0.005814056, w: 0.9541354}
+        inSlope: {x: 0.73049706, y: -0.004446223, z: 0.002298037, w: -0.22804345}
+        outSlope: {x: 0.73049706, y: -0.004446223, z: 0.002298037, w: -0.22804345}
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334, w: 0.33333334}
+        outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334, w: 0.33333334}
+      - serializedVersion: 3
+        time: 2.125
+        value: {x: 0.36997014, y: 0.0025458098, z: 0.0060098637, w: 0.9290207}
+        inSlope: {x: -0.15308398, y: 0.0010055095, z: -0.00038817702, w: 0.060401898}
+        outSlope: {x: -0.15308398, y: 0.0010055095, z: -0.00038817702, w: 0.060401898}
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334, w: 0.33333334}
+        outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334, w: 0.33333334}
+      - serializedVersion: 3
+        time: 2.4166667
+        value: {x: 0.26117632, y: 0.0032233957, z: 0.0056905365, w: 0.96526897}
+        inSlope: {x: -0.2872544, y: 0.0016968097, z: -0.00095584244, w: 0.078459114}
+        outSlope: {x: -0.2872544, y: 0.0016968097, z: -0.00095584244, w: 0.078459114}
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334, w: 0.33333334}
+        outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334, w: 0.33333334}
+      - serializedVersion: 3
+        time: 2.5
+        value: {x: 0.24791394, y: 0.0033011325, z: 0.0056457953, w: 0.96876}
+        inSlope: {x: -0.08575484, y: 0.0005005636, z: -0.00029141194, w: 0.02211436}
+        outSlope: {x: -0.08575484, y: 0.0005005636, z: -0.00029141194, w: 0.02211436}
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334, w: 0.33333334}
+        outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334, w: 0.33333334}
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    path: rig/body/body_top0/body_top1/neck0
+  m_CompressedRotationCurves: []
+  m_EulerCurves: []
+  m_PositionCurves: []
+  m_ScaleCurves: []
+  m_FloatCurves: []
+  m_PPtrCurves: []
+  m_SampleRate: 24
+  m_WrapMode: 0
+  m_Bounds:
+    m_Center: {x: 0, y: 0, z: 0}
+    m_Extent: {x: 0, y: 0, z: 0}
+  m_ClipBindingConstant:
+    genericBindings: []
+    pptrCurveMapping: []
+  m_AnimationClipSettings:
+    serializedVersion: 2
+    m_AdditiveReferencePoseClip: {fileID: 0}
+    m_AdditiveReferencePoseTime: 0
+    m_StartTime: 0
+    m_StopTime: 2.5
+    m_OrientationOffsetY: 0
+    m_Level: 0
+    m_CycleOffset: 0
+    m_HasAdditiveReferencePose: 0
+    m_LoopTime: 0
+    m_LoopBlend: 0
+    m_LoopBlendOrientation: 0
+    m_LoopBlendPositionY: 0
+    m_LoopBlendPositionXZ: 0
+    m_KeepOriginalOrientation: 0
+    m_KeepOriginalPositionY: 1
+    m_KeepOriginalPositionXZ: 0
+    m_HeightFromFeet: 0
+    m_Mirror: 0
+  m_EditorCurves: []
+  m_EulerEditorCurves: []
+  m_HasGenericRootTransform: 0
+  m_HasMotionFloatCurves: 0
+  m_Events: []

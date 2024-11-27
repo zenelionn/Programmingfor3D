@@ -6,12 +6,19 @@ using TMPro;
 
 public class DialogueManager : MonoBehaviour
 {
+    [Header("Text")]
     public TMP_Text dialogueText;
     public Button nextButton;
     public float typingSpeed = 0.05f;
 
     private bool isTyping = false;
     private Queue<string> sentences;
+
+    [Header("Animations")]
+    [SerializeField] Animator rustAnimator;
+    [SerializeField] Animator fezzAnimator;
+    [SerializeField] List<string> rustAnimations = new List<string>();
+    private int animation = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -21,6 +28,8 @@ public class DialogueManager : MonoBehaviour
         nextButton.onClick.AddListener(OnNextButtonClicked);
         nextButton.gameObject.SetActive(false);
 
+        
+        
     
     }
 
@@ -30,6 +39,7 @@ public class DialogueManager : MonoBehaviour
             sentences.Enqueue(sentence);
         }
         DisplayNextSentence();
+
     }
 
     public void DisplayNextSentence(){
@@ -45,6 +55,16 @@ public class DialogueManager : MonoBehaviour
         string sentence = sentences.Dequeue();
         StartCoroutine(TypeSentence(sentence));
 
+    }
+
+    public void PlayNextAnimation(){
+        if (animation > 8){
+            animation = 8;
+        }
+        else{
+            animation = animation + 1;
+        }
+        
     }
 
     private IEnumerator TypeSentence(string sentence){
@@ -64,6 +84,15 @@ public class DialogueManager : MonoBehaviour
 
     private void OnNextButtonClicked(){
         DisplayNextSentence();
+        // play next animation
+        if (animation > 8){
+            rustAnimator.Play("Idle");
+        }
+        else{
+            rustAnimator.Play(rustAnimations[animation]);
+            PlayNextAnimation();
+        }
+        
     }
 
     private void EndDialogue(){
