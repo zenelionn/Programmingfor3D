@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
+using UnityEngine.SceneManagement;
+
 public class DialogueManager : MonoBehaviour
 {
     [Header("Text")]
@@ -26,6 +28,10 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] Camera rustCamera;
     [SerializeField] Camera fezzCamera;
 
+    [Header("Level Loader")]
+    [SerializeField] private GameObject loadingScreen;
+    [SerializeField] private string levelToLoad;
+
     [SerializeField] List<Camera> CamerasType = new List<Camera>();
 
     // Start is called before the first frame update
@@ -40,7 +46,7 @@ public class DialogueManager : MonoBehaviour
         rustCamera.enabled = true;
         fezzCamera.enabled = false;
 
-        
+        loadingScreen.SetActive(false);
         
     
     }
@@ -125,5 +131,12 @@ public class DialogueManager : MonoBehaviour
     private void EndDialogue(){
         Debug.Log("End of Dialogue");
         nextButton.gameObject.SetActive(false);
+        loadingScreen.SetActive(true);
+        StartCoroutine(LoadLevelASync(levelToLoad));
     }
+
+    IEnumerator LoadLevelASync(string levelToLoad){
+        AsyncOperation loadOperation = SceneManager.LoadSceneAsync(levelToLoad);
+        yield return null;
+   }
 }
