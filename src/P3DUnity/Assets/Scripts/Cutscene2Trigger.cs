@@ -8,7 +8,7 @@ public class Cutscene2Trigger : MonoBehaviour
 {
     [SerializeField] private GameObject loadingScreen;
 
-    private Start(){
+    private void Start(){
         loadingScreen.SetActive(false);
     }
     private void OnTriggerEnter(Collider other){
