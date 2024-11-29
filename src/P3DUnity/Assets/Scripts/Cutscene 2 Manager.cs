@@ -11,7 +11,7 @@ public class Cutscene2Manager : MonoBehaviour
     [Header("Text")]
     public TMP_Text dialogueText;
     public Button nextButton;
-    public float typingSpeed = 0.05f;
+    public float typingSpeed = 1f;
 
     private bool isTyping = false;
     private Queue<string> sentences;
@@ -130,6 +130,17 @@ private IEnumerator TypeSentence(string sentence){
                 Ophelia.transform.eulerAngles = new Vector3(357.077881f,92.4920044f,0.0302289501f);
                 Fish.transform.eulerAngles = new Vector3(57.6701889f,358.568634f,328.362183f);
                 FishAnimator.Play("Fish Float");
+            }
+            if (shotNumber == 18){
+                Ophelia.transform.eulerAngles = new Vector3(3.46166492f,70.0800476f,357.566101f);
+            }
+            if (shotNumber == 19){
+                Ophelia.transform.position = new Vector3(0,0,0);
+                FishAnimator.Play("Fish still");
+                Fish.SetActive(false);
+            }
+            if (shotNumber == 21){
+                Rust.transform.position = new Vector3(7.40705442f,-0.273988038f,-0.297263324f);
             }
 
             SwitchCameras(shotNumber);
