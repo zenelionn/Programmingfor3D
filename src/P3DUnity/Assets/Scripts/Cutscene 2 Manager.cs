@@ -17,9 +17,13 @@ public class Cutscene2Manager : MonoBehaviour
     private Queue<string> sentences;
 
     [Header("Animations")]
+    [SerializeField] GameObject Ophelia;
+    [SerializeField] GameObject Rust;
     [SerializeField] Animator rustAnimator;
+    [SerializeField] Animator opheliaAnimator;
     [SerializeField] List<string> rustAnimations = new List<string>();
     [SerializeField] List<string> fezzAnimations = new List<string>();
+    [SerializeField] List<string> opheliaAnimations = new List<string>();
 
     [Header("Level Loader")]
     [SerializeField] private GameObject loadingScreen;
@@ -45,6 +49,8 @@ public class Cutscene2Manager : MonoBehaviour
 
         // initialise animation
         rustAnimator.Play("Idle");
+
+        Ophelia.transform.position = new Vector3(13.7f,0.631f,0.064f);
         
 
         
@@ -98,7 +104,21 @@ private IEnumerator TypeSentence(string sentence){
         if (shotNumber != shotTotal){
             // change the animation
             rustAnimator.Play(rustAnimations[shotNumber]);
-            // change camera
+            opheliaAnimator.Play(opheliaAnimations[shotNumber]);
+
+            // check shots for positions for ophelia
+            if (shotNumber == 2){
+                Ophelia.transform.position = new Vector3(14.065030f,1.13371289f,1.19528151f);
+                Ophelia.transform.eulerAngles = new Vector3(357.077789f,299.856567f,0.00447649974f);
+            }
+            if (shotNumber == 4){
+                Ophelia.transform.position =  new Vector3(6.80288839f,-0.868864596f,-1.02460706f);
+                Ophelia.transform.eulerAngles = new Vector3(357.077759f,53.2262421f,0.00448643835f);
+                Rust.transform.eulerAngles = new Vector3(0f,70.6999969f,0f);
+            }
+            if (shotNumber == 5){
+                Rust.transform.eulerAngles = new Vector3(0f,238.149506f,0f);
+            }
             SwitchCameras(shotNumber);
 
             shotNumber = shotNumber + 1;
