@@ -34,8 +34,9 @@ public class Cutscene2Manager : MonoBehaviour
     [Header("Cameras")]
     [SerializeField] List<Camera> cameraList = new List<Camera>();
     private Camera currentCamera;
+    
 
-    private int shotNumber;
+    private int shotNumber = 0;
     [SerializeField] private int shotTotal;
 
     void Start()
@@ -45,9 +46,14 @@ public class Cutscene2Manager : MonoBehaviour
         nextButton.onClick.AddListener(OnNextButtonClicked);
         nextButton.gameObject.SetActive(false);
 
-        loadingScreen.SetActive(false);
+        
 
+        
+
+        loadingScreen.SetActive(false);
+        SwitchCameras(shotNumber);
         shotNumber = 1;
+        
 
         // initialise animation
         rustAnimator.Play("Idle");
@@ -55,6 +61,7 @@ public class Cutscene2Manager : MonoBehaviour
         Ophelia.transform.position = new Vector3(13.7f,0.631f,0.064f);
         Fish.transform.position = new Vector3(7.45265007f,0.0769999996f,-1.29499996f);
         Fish.transform.eulerAngles = new Vector3(0f,341.634491f,0f);
+
 
         
         
