@@ -19,6 +19,8 @@ public class Cutscene2Manager : MonoBehaviour
     [Header("Animations")]
     [SerializeField] GameObject Ophelia;
     [SerializeField] GameObject Rust;
+    [SerializeField] GameObject Fish;
+    [SerializeField] Animator FishAnimator;
     [SerializeField] Animator rustAnimator;
     [SerializeField] Animator opheliaAnimator;
     [SerializeField] List<string> rustAnimations = new List<string>();
@@ -51,7 +53,8 @@ public class Cutscene2Manager : MonoBehaviour
         rustAnimator.Play("Idle");
 
         Ophelia.transform.position = new Vector3(13.7f,0.631f,0.064f);
-        
+        Fish.transform.position = new Vector3(7.45265007f,0.0769999996f,-1.29499996f);
+        Fish.transform.eulerAngles = new Vector3(0f,341.634491f,0f);
 
         
         
@@ -119,6 +122,16 @@ private IEnumerator TypeSentence(string sentence){
             if (shotNumber == 5){
                 Rust.transform.eulerAngles = new Vector3(0f,238.149506f,0f);
             }
+            if (shotNumber == 6){
+                Ophelia.transform.position = new Vector3(6.50184679f,-0.487999976f,-0.602499127f);
+                Ophelia.transform.eulerAngles = new Vector3(357.077881f,71.9102249f,0.0302427374f);
+            }
+            if (shotNumber == 9){
+                Ophelia.transform.eulerAngles = new Vector3(357.077881f,92.4920044f,0.0302289501f);
+                Fish.transform.eulerAngles = new Vector3(57.6701889f,358.568634f,328.362183f);
+                FishAnimator.Play("Fish Float");
+            }
+
             SwitchCameras(shotNumber);
 
             shotNumber = shotNumber + 1;
