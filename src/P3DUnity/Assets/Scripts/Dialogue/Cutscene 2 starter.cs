@@ -17,7 +17,7 @@ public class Cutscene2starter : MonoBehaviour
     }
 
     private void OnNextButtonClicked(){
-        Debug.Log("sigma");
+
         cutsceneManager.StartDialogue(dialogue);
         startbutton.gameObject.SetActive(false);
     }

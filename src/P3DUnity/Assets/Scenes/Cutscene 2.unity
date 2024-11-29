@@ -30319,20 +30319,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 923891981}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 978513025}
-        m_TargetAssemblyTypeName: Cutscene2Manager, Assembly-CSharp
-        m_MethodName: StartDialogue
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: ae34bd2be421d4cafbf665308830c983,
-            type: 2}
-          m_ObjectArgumentAssemblyTypeName: Dialogue, Assembly-CSharp
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &923891981
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31405,15 +31392,18 @@ MonoBehaviour:
   nextButton: {fileID: 1420542086}
   typingSpeed: 0.05
   rustAnimator: {fileID: 5866666020317820691}
-  fezzAnimator: {fileID: 773975528577349573}
-  rustAnimations: []
+  rustAnimations:
+  - Idle
+  - Looking
+  - Pointing
   fezzAnimations: []
   loadingScreen: {fileID: 386503609}
-  levelToLoad: 
+  levelToLoad: test building
   cameraList:
   - {fileID: 1267691374}
   - {fileID: 13372946}
   - {fileID: 146847411}
+  shotTotal: 3
 --- !u!43 &989885089
 Mesh:
   m_ObjectHideFlags: 0

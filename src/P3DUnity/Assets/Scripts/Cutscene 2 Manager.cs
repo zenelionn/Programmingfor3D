@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
+using UnityEngine.SceneManagement;
+
 public class Cutscene2Manager : MonoBehaviour
 {
     [Header("Text")]
@@ -16,11 +18,8 @@ public class Cutscene2Manager : MonoBehaviour
 
     [Header("Animations")]
     [SerializeField] Animator rustAnimator;
-    [SerializeField] Animator fezzAnimator;
     [SerializeField] List<string> rustAnimations = new List<string>();
     [SerializeField] List<string> fezzAnimations = new List<string>();
-
-    private int animation = 0;
 
     [Header("Level Loader")]
     [SerializeField] private GameObject loadingScreen;
@@ -28,6 +27,10 @@ public class Cutscene2Manager : MonoBehaviour
 
     [Header("Cameras")]
     [SerializeField] List<Camera> cameraList = new List<Camera>();
+    private Camera currentCamera;
+
+    private int shotNumber;
+    [SerializeField] private int shotTotal;
 
     void Start()
     {
@@ -36,11 +39,13 @@ public class Cutscene2Manager : MonoBehaviour
         nextButton.onClick.AddListener(OnNextButtonClicked);
         nextButton.gameObject.SetActive(false);
 
-        // initialise cameras
-        //rustCamera.enabled = true;
-        //fezzCamera.enabled = false;
+        loadingScreen.SetActive(false);
 
-        //loadingScreen.SetActive(false);
+        shotNumber = 1;
+
+        // initialise animation
+        rustAnimator.Play("Idle");
+        
 
         
         
@@ -71,6 +76,8 @@ public class Cutscene2Manager : MonoBehaviour
 
     }
 
+        
+
 private IEnumerator TypeSentence(string sentence){
         dialogueText.text = ""; // clears current text
         isTyping = true;
@@ -88,29 +95,20 @@ private IEnumerator TypeSentence(string sentence){
 
     private void OnNextButtonClicked(){
         DisplayNextSentence();
-        // play next animation
-        /*if (animation > 8){
-            rustAnimator.Play("Idle");
-            fezzAnimator.Play("Sitting Idle");
+        if (shotNumber != shotTotal){
+            // change the animation
+            rustAnimator.Play(rustAnimations[shotNumber]);
+            // change camera
+            SwitchCameras(shotNumber);
+
+            shotNumber = shotNumber + 1;
+            Debug.Log(shotNumber);
         }
         else{
-            rustAnimator.Play(rustAnimations[animation]);
-            fezzAnimator.Play(fezzAnimations[animation]);
+            shotNumber = shotTotal;
+        }
 
-            // switch cameras
-            if(CamerasType[animation] == rustCamera){
-                rustCamera.enabled = true;
-                fezzCamera.enabled = false;
-            }
-            if(CamerasType[animation] == fezzCamera){
-                rustCamera.enabled = false;
-                fezzCamera.enabled = true;
-            }
-
-            PlayNextAnimation();
-
-
-        }*/
+        
         
     }
 
@@ -118,6 +116,19 @@ private IEnumerator TypeSentence(string sentence){
         Debug.Log("End of Dialogue");
         nextButton.gameObject.SetActive(false);
         loadingScreen.SetActive(true);
-        //StartCoroutine(LoadLevelASync(levelToLoad));
+        StartCoroutine(LoadLevelASync(levelToLoad));
     }
+
+    private void SwitchCameras(int shotNumber){
+        foreach (Camera cam in cameraList){
+            cam.gameObject.SetActive(false);
+        }
+
+        cameraList[shotNumber].gameObject.SetActive(true);
+    }
+
+    IEnumerator LoadLevelASync(string levelToLoad){
+        AsyncOperation loadOperation = SceneManager.LoadSceneAsync(levelToLoad);
+        yield return null;
+   }
 }
