@@ -11,6 +11,7 @@ public class Cutscene2Manager : MonoBehaviour
     [Header("Text")]
     public TMP_Text dialogueText;
     public Button nextButton;
+    public Button skipButton;
     public float typingSpeed = 1f;
 
     private bool isTyping = false;
@@ -39,12 +40,17 @@ public class Cutscene2Manager : MonoBehaviour
     private int shotNumber = 0;
     [SerializeField] private int shotTotal;
 
+    public static bool isCutscene2Finished = false;
+
     void Start()
     {
         // initialise the queue
         sentences = new Queue<string>();
         nextButton.onClick.AddListener(OnNextButtonClicked);
         nextButton.gameObject.SetActive(false);
+
+        skipButton.onClick.AddListener(SkipCutscene);
+        
 
         
 
@@ -167,7 +173,13 @@ private IEnumerator TypeSentence(string sentence){
         Debug.Log("End of Dialogue");
         nextButton.gameObject.SetActive(false);
         loadingScreen.SetActive(true);
+
+        isCutscene2Finished = true;
         StartCoroutine(LoadLevelASync(levelToLoad));
+    }
+
+    private void SkipCutscene(){
+        EndDialogue();
     }
 
     private void SwitchCameras(int shotNumber){
@@ -177,6 +189,7 @@ private IEnumerator TypeSentence(string sentence){
 
         cameraList[shotNumber].gameObject.SetActive(true);
     }
+    
 
     IEnumerator LoadLevelASync(string levelToLoad){
         AsyncOperation loadOperation = SceneManager.LoadSceneAsync(levelToLoad);

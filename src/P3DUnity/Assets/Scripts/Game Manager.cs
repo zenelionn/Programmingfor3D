@@ -9,6 +9,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private TMP_Text playerText;
     [SerializeField] private GameObject frontDoorBarrier;
 
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -18,6 +20,9 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Cutscene2Manager.isCutscene2Finished == true){
+            Destroy(gameObject);
+        }
         
 
 
