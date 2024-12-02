@@ -11,6 +11,7 @@ public class DialogueManager : MonoBehaviour
     [Header("Text")]
     public TMP_Text dialogueText;
     public Button nextButton;
+    public Button skipButton;
     public float typingSpeed = 0.05f;
 
     private bool isTyping = false;
@@ -40,6 +41,7 @@ public class DialogueManager : MonoBehaviour
         // initialise the queue
         sentences = new Queue<string>();
         nextButton.onClick.AddListener(OnNextButtonClicked);
+        skipButton.onClick.AddListener(SkipCutscene);
         nextButton.gameObject.SetActive(false);
 
         // initialise cameras
@@ -133,6 +135,10 @@ public class DialogueManager : MonoBehaviour
         nextButton.gameObject.SetActive(false);
         loadingScreen.SetActive(true);
         StartCoroutine(LoadLevelASync(levelToLoad));
+    }
+
+    private void SkipCutscene(){
+        EndDialogue();
     }
 
     IEnumerator LoadLevelASync(string levelToLoad){
