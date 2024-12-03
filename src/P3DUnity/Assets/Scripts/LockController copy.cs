@@ -5,6 +5,9 @@ using UnityEngine.UI;
 using TMPro;
 using System;
 
+using UnityEngine.SceneManagement;
+
+
 public class NewBehaviourScript : MonoBehaviour
 {
 
@@ -17,6 +20,10 @@ public class NewBehaviourScript : MonoBehaviour
     [SerializeField] private string[] lockCharacterChoices;
     [SerializeField] private int[] lockCharacterNumber;
 
+    [Header("Level Loader")]
+    [SerializeField] private GameObject loadingScreen;
+    [SerializeField] private string levelToLoad;
+
     private string insertedPassword;
     
     // Start is called before the first frame update
@@ -27,6 +34,8 @@ public class NewBehaviourScript : MonoBehaviour
         UpdateUI();
         playerText.gameObject.SetActive(false);
         hittingPlayer = false;
+
+        loadingScreen.SetActive(false);
     }
 
     public void ChangeInsertedPassword(int number)
@@ -59,6 +68,8 @@ public class NewBehaviourScript : MonoBehaviour
 
     public void Unlock()
     {
+        loadingScreen.SetActive(true);
+        StartCoroutine(LoadLevelASync(levelToLoad));
         Debug.Log("Unlocked");
     }
 
@@ -110,5 +121,10 @@ public class NewBehaviourScript : MonoBehaviour
     {
         lockCanvas.SetActive(false);
     }
+
+    IEnumerator LoadLevelASync(string levelToLoad){
+        AsyncOperation loadOperation = SceneManager.LoadSceneAsync(levelToLoad);
+        yield return null;
+   }
 
 }

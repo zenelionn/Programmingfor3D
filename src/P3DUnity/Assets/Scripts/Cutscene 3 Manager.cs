@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.VFX;
 
 using UnityEngine.SceneManagement;
 public class Cutscene3Manager : MonoBehaviour
@@ -11,7 +12,7 @@ public class Cutscene3Manager : MonoBehaviour
     public TMP_Text dialogueText;
     public Button nextButton;
     public Button skipButton;
-    public float typingSpeed = 1f;
+    [SerializeField] private float typingSpeed;
 
     private bool isTyping = false;
     private Queue<string> sentences;
@@ -20,12 +21,20 @@ public class Cutscene3Manager : MonoBehaviour
     [SerializeField] GameObject Ophelia;
     [SerializeField] GameObject Rust;
     [SerializeField] GameObject Fish;
+    [SerializeField] GameObject Chest;
+    [SerializeField] GameObject Fezz;
     [SerializeField] Animator FishAnimator;
     [SerializeField] Animator rustAnimator;
     [SerializeField] Animator opheliaAnimator;
+    [SerializeField] Animator fezzAnimator;
+    [SerializeField] Animator chestAnimator;
+
     [SerializeField] List<string> rustAnimations = new List<string>();
     [SerializeField] List<string> fezzAnimations = new List<string>();
     [SerializeField] List<string> opheliaAnimations = new List<string>();
+
+    [Header("VFX")]
+    [SerializeField] private VisualEffect smoke;
 
     [Header("Level Loader")]
     [SerializeField] private GameObject loadingScreen;
@@ -51,7 +60,7 @@ public class Cutscene3Manager : MonoBehaviour
         skipButton.onClick.AddListener(SkipCutscene);
         
 
-        
+        smoke.pause = true;
 
         
 
@@ -110,9 +119,26 @@ public class Cutscene3Manager : MonoBehaviour
             // change the animation
             rustAnimator.Play(rustAnimations[shotNumber]);
             opheliaAnimator.Play(opheliaAnimations[shotNumber]);
+            fezzAnimator.Play(fezzAnimations[shotNumber]);
+            if (shotNumber == 1){
+                chestAnimator.Play("Chest Open");
+                FishAnimator.Play("Fish Spin");
+            }
+            if (shotNumber == 5){
+                Fezz.transform.eulerAngles = new Vector3(356.228241f,188.802979f,352.472443f);
+                Fish.gameObject.SetActive(false);
+            }
 
+            if (shotNumber == 9){
+                Rust.transform.eulerAngles = new Vector3(0f,171.679977f,0f);
+            }
+
+            if (shotNumber == 20){
+                smoke.pause = false;
+            }
+
+            
             SwitchCameras(shotNumber);
-
             shotNumber = shotNumber + 1;
             Debug.Log(shotNumber);
         }
