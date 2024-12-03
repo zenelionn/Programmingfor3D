@@ -159,7 +159,7 @@ private IEnumerator TypeSentence(string sentence){
             SwitchCameras(shotNumber);
 
             shotNumber = shotNumber + 1;
-            Debug.Log(shotNumber);
+            Debug.Log(shotNumber);!
         }
         else{
             shotNumber = shotTotal;
