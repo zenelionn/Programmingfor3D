@@ -13,22 +13,14 @@ MonoBehaviour:
   m_Name: Cutscene 5
   m_EditorClassIdentifier: 
   sentences:
-  - // shot of rust asleep on the floor
-  - '// shot of Ophelia
-
-    I can''t do  it...'
+  - 
+  - I can't do  it...
   - I can't hurt them... they're all that's left of him.
-  - '// shot of fezziwig
-
-    Isn''t that right Actaeus?'
-  - '// shot of rust''s head
-
-    All this time, you''ve been watching over them. '
+  - Isn't that right Actaeus?
+  - 'All this time, you''ve been watching over them. '
   - This... is the child between you and Helios right?
-  - // fezziwig nods
-  - '// shot of ophelia
-
-    Very well... I''ll leave them alone... '
+  - 
+  - 'Very well... I''ll leave them alone... '
   - Protect them Actaeus
-  - // fezziwig nods
-  - smoke envelopes ophelia and she disappears
+  - 
+  - 

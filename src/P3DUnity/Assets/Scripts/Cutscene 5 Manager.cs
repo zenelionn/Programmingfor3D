@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine.SceneManagement;
+using UnityEngine.VFX;
 
 public class Cutscene5Manager : MonoBehaviour
 {
@@ -21,6 +22,8 @@ public class Cutscene5Manager : MonoBehaviour
     [SerializeField] GameObject Rust;
     [SerializeField] GameObject Fezz;
     
+    [Header("VFX")]
+    [SerializeField] private VisualEffect smoke;
     
 
     [SerializeField] Animator opheliaAnimator;
@@ -53,6 +56,8 @@ public class Cutscene5Manager : MonoBehaviour
         loadingScreen.SetActive(false);
         SwitchCameras(shotNumber);
         shotNumber = 1;
+
+        smoke.pause = true;
 
     
     }
@@ -104,6 +109,10 @@ public class Cutscene5Manager : MonoBehaviour
             opheliaAnimator.Play(opheliaAnimations[shotNumber]);
             fezzAnimator.Play(fezzAnimations[shotNumber]);
 
+            if (shotNumber == 9){
+                smoke.pause = false;
+            }
+
             SwitchCameras(shotNumber);
 
             shotNumber = shotNumber + 1;
@@ -112,6 +121,8 @@ public class Cutscene5Manager : MonoBehaviour
         else{
             shotNumber = shotTotal;
         }
+
+
     }
 
     private void EndDialogue(){
