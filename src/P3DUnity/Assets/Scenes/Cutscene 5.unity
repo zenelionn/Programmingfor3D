@@ -498,7 +498,7 @@ MonoBehaviour:
   - Float 2
   - Float 2
   loadingScreen: {fileID: 1944463111}
-  levelToLoad: Obstacle Course
+  levelToLoad: Cutscene 6
   cameraList:
   - {fileID: 953885825}
   - {fileID: 469115721}
