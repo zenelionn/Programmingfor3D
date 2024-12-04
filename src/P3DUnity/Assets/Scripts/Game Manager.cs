@@ -20,7 +20,7 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Cutscene2Manager.isCutscene2Finished == true){
+        if (Cutscene2Manager.IsCutscene2Finished == true){
             Destroy(gameObject);
         }
         

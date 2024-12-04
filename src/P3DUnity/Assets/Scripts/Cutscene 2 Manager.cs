@@ -40,7 +40,12 @@ public class Cutscene2Manager : MonoBehaviour
     private int shotNumber = 0;
     [SerializeField] private int shotTotal;
 
-    public static bool isCutscene2Finished = false;
+    private static bool isCutscene2Finished = false;
+    public static bool IsCutscene2Finished   // property
+    {
+        get { return isCutscene2Finished; }   // get method
+        set { IsCutscene2Finished = value; }  // set method
+    }
 
     void Start()
     {
@@ -50,17 +55,11 @@ public class Cutscene2Manager : MonoBehaviour
         nextButton.gameObject.SetActive(false);
 
         skipButton.onClick.AddListener(SkipCutscene);
-        
-
-        
-
-        
 
         loadingScreen.SetActive(false);
         SwitchCameras(shotNumber);
         shotNumber = 1;
         
-
         // initialise animation
         rustAnimator.Play("Idle");
 
@@ -68,9 +67,6 @@ public class Cutscene2Manager : MonoBehaviour
         Fish.transform.position = new Vector3(7.45265007f,0.0769999996f,-1.29499996f);
         Fish.transform.eulerAngles = new Vector3(0f,341.634491f,0f);
 
-
-        
-        
     
     }
 
@@ -159,7 +155,7 @@ private IEnumerator TypeSentence(string sentence){
             SwitchCameras(shotNumber);
 
             shotNumber = shotNumber + 1;
-            Debug.Log(shotNumber);!
+            Debug.Log(shotNumber);
         }
         else{
             shotNumber = shotTotal;
