@@ -13,19 +13,10 @@ MonoBehaviour:
   m_Name: Cutscene 4
   m_EditorClassIdentifier: 
   sentences:
-  - // Rust looks around in alarm
+  - 
   - Where am I?
-  - '// shot of Ophelia from below
-
-    You''re foolish if you think you can disobey
-    the Goddess of Harvest'
-  - '// shot of Fezziwig
-
-    Not even he can help you now'
-  - '// shot of the obstacle course
-
-    If you can reach the end of this challenge
-    maybe I''ll consider sparing you''re life'
+  - You're foolish if you think you can disobey the Goddess of Harvest
+  - Not even he can help you now
   - If you can reach the end of this challenge maybe I'll consider sparing you're
     life
-  - // shot of rust from above
+  - 

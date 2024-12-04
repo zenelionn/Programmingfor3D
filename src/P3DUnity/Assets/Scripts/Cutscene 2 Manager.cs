@@ -96,20 +96,20 @@ public class Cutscene2Manager : MonoBehaviour
 
         
 
-private IEnumerator TypeSentence(string sentence){
-        dialogueText.text = ""; // clears current text
-        isTyping = true;
-        nextButton.gameObject.SetActive(false);
+    private IEnumerator TypeSentence(string sentence){
+            dialogueText.text = ""; // clears current text
+            isTyping = true;
+            nextButton.gameObject.SetActive(false);
 
-        foreach(char letter in sentence.ToCharArray()){
-            dialogueText.text += letter;
-            yield return new WaitForSeconds(typingSpeed);
+            foreach(char letter in sentence.ToCharArray()){
+                dialogueText.text += letter;
+                yield return new WaitForSeconds(typingSpeed);
 
+            }
+
+            isTyping = false;
+            nextButton.gameObject.SetActive(true);
         }
-
-        isTyping = false;
-        nextButton.gameObject.SetActive(true);
-    }
 
     private void OnNextButtonClicked(){
         DisplayNextSentence();

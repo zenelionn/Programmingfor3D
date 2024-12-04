@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class Cutscene4Manager : MonoBehaviour
 {
@@ -41,15 +42,102 @@ public class Cutscene4Manager : MonoBehaviour
     private int shotNumber = 0;
     [SerializeField] private int shotTotal;
 
-    // Start is called before the first frame update
     void Start()
     {
-        
+        // initialise the queue
+        sentences = new Queue<string>();
+        nextButton.onClick.AddListener(OnNextButtonClicked);
+        nextButton.gameObject.SetActive(false);
+
+        skipButton.onClick.AddListener(SkipCutscene);
+
+        loadingScreen.SetActive(false);
+        SwitchCameras(shotNumber);
+        shotNumber = 1;
+
+    
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    public void StartDialogue(Dialogue dialogue){
+        sentences.Clear();
+        foreach(string sentence in dialogue.sentences){
+            sentences.Enqueue(sentence);
+        }
+        DisplayNextSentence();
+
     }
+
+    public void DisplayNextSentence(){
+        if(isTyping){
+            return;
+        }
+
+        if(sentences.Count == 0){
+            EndDialogue();
+            return;
+        }
+
+        string sentence = sentences.Dequeue();
+        StartCoroutine(TypeSentence(sentence));
+
+    }
+
+    private IEnumerator TypeSentence(string sentence){
+            dialogueText.text = ""; // clears current text
+            isTyping = true;
+            nextButton.gameObject.SetActive(false);
+
+            foreach(char letter in sentence.ToCharArray()){
+                dialogueText.text += letter;
+                yield return new WaitForSeconds(typingSpeed);
+
+            }
+
+            isTyping = false;
+            nextButton.gameObject.SetActive(true);
+    }
+
+    private void OnNextButtonClicked(){
+        DisplayNextSentence();
+        if (shotNumber != shotTotal){
+            // change the animation
+            rustAnimator.Play(rustAnimations[shotNumber]);
+            opheliaAnimator.Play(opheliaAnimations[shotNumber]);
+
+            SwitchCameras(shotNumber);
+
+            shotNumber = shotNumber + 1;
+            Debug.Log(shotNumber);
+        }
+        else{
+            shotNumber = shotTotal;
+        }
+    }
+
+    private void EndDialogue(){
+        Debug.Log("End of Dialogue");
+        nextButton.gameObject.SetActive(false);
+        loadingScreen.SetActive(true);
+        StartCoroutine(LoadLevelASync(levelToLoad));
+    }
+
+    private void SkipCutscene(){
+        EndDialogue();
+    }
+
+    private void SwitchCameras(int shotNumber){
+        foreach (Camera cam in cameraList){
+            cam.gameObject.SetActive(false);
+        }
+
+        cameraList[shotNumber].gameObject.SetActive(true);
+    }
+    
+
+    IEnumerator LoadLevelASync(string levelToLoad){
+        AsyncOperation loadOperation = SceneManager.LoadSceneAsync(levelToLoad);
+        yield return null;
+    }
+
+
 }
