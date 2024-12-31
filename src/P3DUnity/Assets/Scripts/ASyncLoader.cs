@@ -9,17 +9,13 @@ public class ASyncLoader : MonoBehaviour
     [SerializeField] private GameObject loadingScreen;
     [SerializeField] private string levelToLoad;
 
-
-
     private void Start(){
         loadingScreen.SetActive(false);
     }
 
     public void OnTriggerEnter(Collider other){
         loadingScreen.SetActive(true);
-
         StartCoroutine(LoadLevelASync(levelToLoad));
-
     }
 
     IEnumerator LoadLevelASync(string levelToLoad){

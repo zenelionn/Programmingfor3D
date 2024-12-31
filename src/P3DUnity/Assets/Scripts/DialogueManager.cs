@@ -9,10 +9,10 @@ using UnityEngine.SceneManagement;
 public class DialogueManager : MonoBehaviour
 {
     [Header("Text")]
-    public TMP_Text dialogueText;
-    public Button nextButton;
-    public Button skipButton;
-    public float typingSpeed = 0.05f;
+    [SerializeField] private TMP_Text dialogueText;
+    [SerializeField] private Button nextButton;
+    [SerializeField] private Button skipButton;
+    [SerializeField] private float typingSpeed = 0.05f;
 
     private bool isTyping = false;
     private Queue<string> sentences;
@@ -34,6 +34,11 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private string levelToLoad;
 
     [SerializeField] List<Camera> CamerasType = new List<Camera>();
+
+    [Header("Audio")]
+    [SerializeField] private AudioSource RustBoop1;
+    [SerializeField] private AudioSource RustBoop2;
+    [SerializeField] private int randomNum;
 
     // Start is called before the first frame update
     void Start()
@@ -94,16 +99,26 @@ public class DialogueManager : MonoBehaviour
 
         foreach(char letter in sentence.ToCharArray()){
             dialogueText.text += letter;
+            //audio
+            randomNum = Random.Range(1,2);
+            if (randomNum == 1){
+                RustBoop1.Play();
+            }
+            if (randomNum == 2){
+                RustBoop2.Play();
+            }
             yield return new WaitForSeconds(typingSpeed);
 
         }
 
         isTyping = false;
         nextButton.gameObject.SetActive(true);
+
     }
 
     private void OnNextButtonClicked(){
         DisplayNextSentence();
+
         // play next animation
         if (animation > 8){
             rustAnimator.Play("Idle");
