@@ -43,6 +43,7 @@ public class Cutscene2Manager : MonoBehaviour
     [SerializeField] private AudioSource OpheliaBoop2;
     [SerializeField] private int randomNum;
     [SerializeField] List<string> whosTalking = new List<string>();
+    private int talkingTotal;
 
 
 
@@ -68,6 +69,7 @@ public class Cutscene2Manager : MonoBehaviour
         loadingScreen.SetActive(false);
         SwitchCameras(shotNumber);
         shotNumber = 1;
+        talkingTotal = shotTotal + 1;
         
         // initialise animation
         rustAnimator.Play("Idle");
@@ -113,18 +115,21 @@ public class Cutscene2Manager : MonoBehaviour
             foreach(char letter in sentence.ToCharArray()){
                 dialogueText.text += letter;
                 randomNum = Random.Range(1,2);
-                if ((randomNum == 1)&&(whosTalking[shotNumber] == "Rust")){
+                if (shotNumber != talkingTotal){
+                    if ((randomNum == 1)&&(whosTalking[shotNumber] == "Rust")){
                     RustBoop1.Play();
+                    }
+                    if ((randomNum == 2)&&(whosTalking[shotNumber] == "Rust")){
+                        RustBoop2.Play();
+                    }
+                    if ((randomNum == 1)&&(whosTalking[shotNumber] == "Ophelia")){
+                        OpheliaBoop1.Play();
+                    }
+                    if ((randomNum == 2)&&(whosTalking[shotNumber] == "Ophelia")){
+                        OpheliaBoop2.Play();
+                    }
                 }
-                if ((randomNum == 2)&&(whosTalking[shotNumber] == "Rust")){
-                    RustBoop2.Play();
-                }
-                if ((randomNum == 1)&&(whosTalking[shotNumber] == "Ophelia")){
-                    OpheliaBoop1.Play();
-                }
-                if ((randomNum == 2)&&(whosTalking[shotNumber] == "Ophelia")){
-                    OpheliaBoop2.Play();
-                }
+                
                 yield return new WaitForSeconds(typingSpeed);
 
             }
@@ -135,7 +140,7 @@ public class Cutscene2Manager : MonoBehaviour
 
     private void OnNextButtonClicked(){
         DisplayNextSentence();
-        if (shotNumber != shotTotal){
+        if (shotNumber != talkingTotal){
             // change the animation
             rustAnimator.Play(rustAnimations[shotNumber]);
             opheliaAnimator.Play(opheliaAnimations[shotNumber]);
