@@ -9,31 +9,30 @@ using UnityEngine.SceneManagement;
 public class Cutscene2Manager : MonoBehaviour
 {
     [Header("Text")]
-    public TMP_Text dialogueText;
-    public Button nextButton;
-    public Button skipButton;
-    public float typingSpeed = 1f;
-
+    [SerializeField] private TMP_Text dialogueText;
+    [SerializeField] private Button nextButton;
+    [SerializeField] private Button skipButton;
+    [SerializeField] private float typingSpeed = 1f;
     private bool isTyping = false;
     private Queue<string> sentences;
 
     [Header("Animations")]
-    [SerializeField] GameObject Ophelia;
-    [SerializeField] GameObject Rust;
-    [SerializeField] GameObject Fish;
-    [SerializeField] Animator FishAnimator;
-    [SerializeField] Animator rustAnimator;
-    [SerializeField] Animator opheliaAnimator;
-    [SerializeField] List<string> rustAnimations = new List<string>();
-    [SerializeField] List<string> fezzAnimations = new List<string>();
-    [SerializeField] List<string> opheliaAnimations = new List<string>();
+    [SerializeField] private GameObject Ophelia;
+    [SerializeField] private GameObject Rust;
+    [SerializeField] private GameObject Fish;
+    [SerializeField] private Animator FishAnimator;
+    [SerializeField] private Animator rustAnimator;
+    [SerializeField] private Animator opheliaAnimator;
+    [SerializeField] private List<string> rustAnimations = new List<string>();
+    [SerializeField] private List<string> fezzAnimations = new List<string>();
+    [SerializeField] private List<string> opheliaAnimations = new List<string>();
 
     [Header("Level Loader")]
     [SerializeField] private GameObject loadingScreen;
     [SerializeField] private string levelToLoad;
 
     [Header("Cameras")]
-    [SerializeField] List<Camera> cameraList = new List<Camera>();
+    [SerializeField] private List<Camera> cameraList = new List<Camera>();
     private Camera currentCamera;
     
     [Header("Audio")]
@@ -42,10 +41,8 @@ public class Cutscene2Manager : MonoBehaviour
     [SerializeField] private AudioSource OpheliaBoop1;
     [SerializeField] private AudioSource OpheliaBoop2;
     [SerializeField] private int randomNum;
-    [SerializeField] List<string> whosTalking = new List<string>();
+    [SerializeField] private List<string> whosTalking = new List<string>();
     private int talkingTotal;
-
-
 
     private int shotNumber = 0;
     [SerializeField] private int shotTotal;

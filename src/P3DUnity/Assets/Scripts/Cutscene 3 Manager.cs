@@ -43,12 +43,26 @@ public class Cutscene3Manager : MonoBehaviour
     [Header("Cameras")]
     [SerializeField] List<Camera> cameraList = new List<Camera>();
     private Camera currentCamera;
+
+    [Header("Audio")]
+    [SerializeField] private AudioSource RustBoop1;
+    [SerializeField] private AudioSource RustBoop2;
+    [SerializeField] private AudioSource OpheliaBoop1;
+    [SerializeField] private AudioSource OpheliaBoop2;
+    [SerializeField] private int randomNum;
+    [SerializeField] private List<string> whosTalking = new List<string>();
+    private int talkingTotal;
     
 
     private int shotNumber = 0;
     [SerializeField] private int shotTotal;
-
-    public static bool isCutscene3Finished = false;
+    
+    private static bool isCutscene3Finished = false;
+    public static bool IsCutscene3Finished   // property
+    {
+        get { return isCutscene3Finished; }   // get method
+        set { IsCutscene3Finished = value; }  // set method
+    }
 
     void Start()
     {
@@ -67,6 +81,7 @@ public class Cutscene3Manager : MonoBehaviour
         loadingScreen.SetActive(false);
         SwitchCameras(shotNumber);
         shotNumber = 1;
+        talkingTotal = shotTotal + 1;
         
 
         // initialise animation
@@ -105,6 +120,21 @@ public class Cutscene3Manager : MonoBehaviour
 
         foreach(char letter in sentence.ToCharArray()){
             dialogueText.text += letter;
+            randomNum = Random.Range(1,2);
+            if (shotNumber != talkingTotal){
+                if ((randomNum == 1)&&(whosTalking[shotNumber] == "Rust")){
+                RustBoop1.Play();
+                }
+                if ((randomNum == 2)&&(whosTalking[shotNumber] == "Rust")){
+                    RustBoop2.Play();
+                }
+                if ((randomNum == 1)&&(whosTalking[shotNumber] == "Ophelia")){
+                    OpheliaBoop1.Play();
+                }
+                if ((randomNum == 2)&&(whosTalking[shotNumber] == "Ophelia")){
+                    OpheliaBoop2.Play();
+                }
+            }
             yield return new WaitForSeconds(typingSpeed);
 
         }
