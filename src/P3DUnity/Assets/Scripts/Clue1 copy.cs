@@ -8,12 +8,9 @@ using StarterAssets;
 
 public class Clue1 : MonoBehaviour
 {
-
     [SerializeField] private bool hittingPlayer = false;
-
-    public TMP_Text clueText;
-    public GameObject clueCanvas;
-
+    [SerializeField] private TMP_Text clueText;
+    [SerializeField] private GameObject clueCanvas;
 
     // Start is called before the first frame update
     void Start()
@@ -24,11 +21,8 @@ public class Clue1 : MonoBehaviour
 
     void Update()
     {
-        // if approaching the first clue, and E is pressed, open the clue!
-
         if (Input.GetKeyDown(KeyCode.E) && (hittingPlayer == true))
         {
-            // set clue canvas 1 to active
             Interactable();
         }
     }
@@ -37,8 +31,7 @@ public class Clue1 : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            clueText.text = "Press E to read Clue";
-            
+            clueText.text = "Press E to read Clue";  
             clueText.gameObject.SetActive(true);
             hittingPlayer = true;
         }

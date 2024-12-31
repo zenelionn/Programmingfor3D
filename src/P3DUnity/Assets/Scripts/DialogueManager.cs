@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-
 using UnityEngine.SceneManagement;
 
 public class DialogueManager : MonoBehaviour
@@ -40,7 +39,6 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private AudioSource RustBoop2;
     [SerializeField] private int randomNum;
 
-    // Start is called before the first frame update
     void Start()
     {
         // initialise the queue
@@ -54,8 +52,6 @@ public class DialogueManager : MonoBehaviour
         fezzCamera.enabled = false;
 
         loadingScreen.SetActive(false);
-        
-    
     }
 
     public void StartDialogue(Dialogue dialogue){
@@ -64,22 +60,18 @@ public class DialogueManager : MonoBehaviour
             sentences.Enqueue(sentence);
         }
         DisplayNextSentence();
-
     }
 
     public void DisplayNextSentence(){
         if(isTyping){
             return;
         }
-
         if(sentences.Count == 0){
             EndDialogue();
             return;
         }
-
         string sentence = sentences.Dequeue();
         StartCoroutine(TypeSentence(sentence));
-
     }
 
     public void PlayNextAnimation(){
@@ -89,7 +81,6 @@ public class DialogueManager : MonoBehaviour
         else{
             animation = animation + 1;
         }
-        
     }
 
     private IEnumerator TypeSentence(string sentence){
@@ -108,17 +99,13 @@ public class DialogueManager : MonoBehaviour
                 RustBoop2.Play();
             }
             yield return new WaitForSeconds(typingSpeed);
-
         }
-
         isTyping = false;
         nextButton.gameObject.SetActive(true);
-
     }
 
     private void OnNextButtonClicked(){
         DisplayNextSentence();
-
         // play next animation
         if (animation > 8){
             rustAnimator.Play("Idle");
@@ -137,12 +124,8 @@ public class DialogueManager : MonoBehaviour
                 rustCamera.enabled = false;
                 fezzCamera.enabled = true;
             }
-
             PlayNextAnimation();
-
-
         }
-        
     }
 
     private void EndDialogue(){

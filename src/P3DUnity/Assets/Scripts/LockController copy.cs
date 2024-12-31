@@ -4,13 +4,10 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using System;
-
 using UnityEngine.SceneManagement;
-
 
 public class NewBehaviourScript : MonoBehaviour
 {
-
     [SerializeField] private  bool interactable = true;
     [SerializeField] private bool hittingPlayer;
     [SerializeField] private GameObject lockCanvas;
@@ -34,7 +31,6 @@ public class NewBehaviourScript : MonoBehaviour
         UpdateUI();
         playerText.gameObject.SetActive(false);
         hittingPlayer = false;
-
         loadingScreen.SetActive(false);
     }
 
@@ -45,7 +41,6 @@ public class NewBehaviourScript : MonoBehaviour
         {
             lockCharacterNumber[number] = 0;   
         }
-
         Checkpassword();
         UpdateUI();
     }
@@ -54,12 +49,10 @@ public class NewBehaviourScript : MonoBehaviour
     {
         int passLen = password.Length;
         insertedPassword = "";
-
         for(int i=0; i < passLen; i++)
         {
             insertedPassword += lockCharacterChoices[i][lockCharacterNumber[i]].ToString();
         }
-
         if(password == insertedPassword)
         {
             Unlock();
@@ -79,7 +72,6 @@ public class NewBehaviourScript : MonoBehaviour
         for (int i=0; i < len; i++)
         {
             text[i].text = lockCharacterChoices[i][lockCharacterNumber[i]].ToString();
-
         }
     }
 

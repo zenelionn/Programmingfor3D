@@ -9,8 +9,6 @@ public class GameManager : MonoBehaviour
     [SerializeField] private TMP_Text playerText;
     [SerializeField] private GameObject frontDoorBarrier;
 
-
-
     // Start is called before the first frame update
     void Start()
     {
@@ -23,10 +21,6 @@ public class GameManager : MonoBehaviour
         if (Cutscene2Manager.IsCutscene2Finished == true){
             Destroy(gameObject);
         }
-        
-
-
-        
     }
 
     private void OnTriggerEnter(Collider other){
@@ -36,19 +30,11 @@ public class GameManager : MonoBehaviour
             playerText.text = "I'm pretty certain the pillow is in my room";
              playerText.gameObject.SetActive(true);
         }
-        
-
     }
 
     private void OnTriggerExit(Collider other){
-        if (other.gameObject.CompareTag("Player")){
-            
+        if (other.gameObject.CompareTag("Player")){        
              playerText.gameObject.SetActive(false);
         }
     }
 }
-
-
-// if approaching the front door barrier or the back door barrier:
-        // show up player canvas saying:
-        // "I'm pretty certain the pillow is in my room"
