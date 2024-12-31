@@ -9,29 +9,29 @@ using UnityEngine.SceneManagement;
 public class Cutscene3Manager : MonoBehaviour
 {
     [Header("Text")]
-    public TMP_Text dialogueText;
-    public Button nextButton;
-    public Button skipButton;
+    [SerializeField] private TMP_Text dialogueText;
+    [SerializeField] private Button nextButton;
+    [SerializeField] private Button skipButton;
     [SerializeField] private float typingSpeed;
 
     private bool isTyping = false;
     private Queue<string> sentences;
 
     [Header("Animations")]
-    [SerializeField] GameObject Ophelia;
-    [SerializeField] GameObject Rust;
-    [SerializeField] GameObject Fish;
-    [SerializeField] GameObject Chest;
-    [SerializeField] GameObject Fezz;
-    [SerializeField] Animator FishAnimator;
-    [SerializeField] Animator rustAnimator;
-    [SerializeField] Animator opheliaAnimator;
-    [SerializeField] Animator fezzAnimator;
-    [SerializeField] Animator chestAnimator;
+    [SerializeField] private GameObject Ophelia;
+    [SerializeField] private GameObject Rust;
+    [SerializeField] private GameObject Fish;
+    [SerializeField] private GameObject Chest;
+    [SerializeField] private GameObject Fezz;
+    [SerializeField] private Animator FishAnimator;
+    [SerializeField] private Animator rustAnimator;
+    [SerializeField] private Animator opheliaAnimator;
+    [SerializeField] private Animator fezzAnimator;
+    [SerializeField] private Animator chestAnimator;
 
-    [SerializeField] List<string> rustAnimations = new List<string>();
-    [SerializeField] List<string> fezzAnimations = new List<string>();
-    [SerializeField] List<string> opheliaAnimations = new List<string>();
+    [SerializeField] private List<string> rustAnimations = new List<string>();
+    [SerializeField] private List<string> fezzAnimations = new List<string>();
+    [SerializeField] private List<string> opheliaAnimations = new List<string>();
 
     [Header("VFX")]
     [SerializeField] private VisualEffect smoke;
