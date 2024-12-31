@@ -36,6 +36,15 @@ public class Cutscene2Manager : MonoBehaviour
     [SerializeField] List<Camera> cameraList = new List<Camera>();
     private Camera currentCamera;
     
+    [Header("Audio")]
+    [SerializeField] private AudioSource RustBoop1;
+    [SerializeField] private AudioSource RustBoop2;
+    [SerializeField] private AudioSource OpheliaBoop1;
+    [SerializeField] private AudioSource OpheliaBoop2;
+    [SerializeField] private int randomNum;
+    [SerializeField] List<string> whosTalking = new List<string>();
+
+
 
     private int shotNumber = 0;
     [SerializeField] private int shotTotal;
@@ -103,6 +112,19 @@ public class Cutscene2Manager : MonoBehaviour
 
             foreach(char letter in sentence.ToCharArray()){
                 dialogueText.text += letter;
+                randomNum = Random.Range(1,2);
+                if ((randomNum == 1)&&(whosTalking[shotNumber] == "Rust")){
+                    RustBoop1.Play();
+                }
+                if ((randomNum == 2)&&(whosTalking[shotNumber] == "Rust")){
+                    RustBoop2.Play();
+                }
+                if ((randomNum == 1)&&(whosTalking[shotNumber] == "Ophelia")){
+                    OpheliaBoop1.Play();
+                }
+                if ((randomNum == 2)&&(whosTalking[shotNumber] == "Ophelia")){
+                    OpheliaBoop2.Play();
+                }
                 yield return new WaitForSeconds(typingSpeed);
 
             }

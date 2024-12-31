@@ -33305,6 +33305,34 @@ MonoBehaviour:
   - {fileID: 854418094}
   - {fileID: 1160524246}
   - {fileID: 459607821}
+  RustBoop1: {fileID: 0}
+  RustBoop2: {fileID: 0}
+  OpheliaBoop1: {fileID: 0}
+  OpheliaBoop2: {fileID: 0}
+  randomNum: 0
+  whosTalking:
+  - 
+  - Rust
+  - 
+  - 
+  - Rust
+  - 
+  - Rust
+  - Ophelia
+  - Ophelia
+  - Rust
+  - Ophelia
+  - Ophelia
+  - Rust
+  - Ophelia
+  - Ophelia
+  - Ophelia
+  - Rust
+  - Ophelia
+  - Ophelia
+  - Ophelia
+  - Rust
+  - 
   shotTotal: 22
 --- !u!43 &989885089
 Mesh:
